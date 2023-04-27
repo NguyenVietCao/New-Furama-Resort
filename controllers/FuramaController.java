@@ -1,10 +1,13 @@
 package controllers;
 
+import service.personService.EmployeeService;
+
 import java.util.Scanner;
 
 public class FuramaController {
 
     Scanner scanner = new Scanner(System.in);
+    EmployeeService employeeService = new EmployeeService();
 
     public void displayMainMenu() {
         boolean check = true;
@@ -54,10 +57,13 @@ public class FuramaController {
             String n = scanner.nextLine();
             switch (n) {
                 case "1":
+                    employeeService.displayListEmployeeService();
                     break;
                 case "2":
+                    employeeService.addEmployeeService();
                     break;
                 case "3":
+                    employeeService.editEmployeeService();
                     break;
                 case "4":
                     check = false;
