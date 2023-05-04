@@ -7,16 +7,17 @@ import util.Regex;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeService implements IEmployeeService{
+public class EmployeeService implements IEmployeeService {
     EmployeeRepository employeeRepository = new EmployeeRepository();
     Scanner scanner = new Scanner(System.in);
+
     @Override
     public void displayListEmployeeService() {
-        List<Employee>employeeList = employeeRepository.displayListEmployeeRepository();
-        for (Employee e:employeeList) {
+        List<Employee> employeeList = employeeRepository.displayListEmployeeRepository();
+        for (Employee e : employeeList) {
             System.out.println(e);
         }
-     }
+    }
 
     @Override
     public void addEmployeeService() {
@@ -24,14 +25,14 @@ public class EmployeeService implements IEmployeeService{
         String code;
         do {
             System.out.print("Enter Code: ");
-             code = scanner.nextLine();
-             if (Regex.checkCodeEmployee(code)== true){
-                 break;
-             }else {
-                 System.err.println("You wrong format Please enter again");
-             }
+            code = scanner.nextLine();
+            if (Regex.checkCodeEmployee(code) == true) {
+                break;
+            } else {
+                System.err.println("You wrong format Please enter again");
+            }
 
-        }while (check);
+        } while (check);
 
 
         System.out.print("Enter Name: ");
@@ -61,20 +62,20 @@ public class EmployeeService implements IEmployeeService{
         System.out.print("Enter Employee Salary: ");
         String employeeSalary = scanner.nextLine();
 
-        Employee employee = new Employee(code,name,birthDay,gender,idNumber,phoneNumber,mail,employeeEducation,employeeLevel,employeeSalary);
-employeeRepository.addEmployeeRepository(employee);
+        Employee employee = new Employee(code, name, birthDay, gender, idNumber, phoneNumber, mail, employeeEducation, employeeLevel, employeeSalary);
+        employeeRepository.addEmployeeRepository(employee);
     }
 
     @Override
     public void editEmployeeService() {
-        List<Employee>employeeList = employeeRepository.displayListEmployeeRepository();
-        for (Employee e:employeeList) {
+        List<Employee> employeeList = employeeRepository.displayListEmployeeRepository();
+        for (Employee e : employeeList) {
             System.out.println(e);
         }
         System.out.println("Enter code you need to fix: ");
         String codeEdit = scanner.nextLine();
         for (int i = 0; i < employeeList.size(); i++) {
-            if (codeEdit.equals(employeeList.get(i).getCode())){
+            if (codeEdit.equals(employeeList.get(i).getCode())) {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
 
@@ -102,7 +103,7 @@ employeeRepository.addEmployeeRepository(employee);
                 System.out.print("Enter Employee Salary: ");
                 String employeeSalary = scanner.nextLine();
 
-                Employee employee = new Employee(codeEdit,name,birthDay,gender,idNumber,phoneNumber,email,employeeEducation,employeeLevel,employeeSalary);
+                Employee employee = new Employee(codeEdit, name, birthDay, gender, idNumber, phoneNumber, email, employeeEducation, employeeLevel, employeeSalary);
                 employeeRepository.editEmployeeRepository(employee);
             }
 

@@ -41,6 +41,6 @@ public class House extends Facility{
     }
     public String getInformationHouseToCsv(){
         return getServiceCode() + "," + getServiceName() + ","+ getUseArea() +","+ getRentCoast() +","+ getMaximumPeople()
-                + ","+ getRentType() +","+ getRentType() +","+qualityRoom +"," +floorNumber;
+                + ","+ getRentType() +","+qualityRoom +"," +floorNumber;
     }
 }

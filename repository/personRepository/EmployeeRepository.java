@@ -23,7 +23,7 @@ public class EmployeeRepository implements IEmployeeRepository {
         List<Employee>employees = new ArrayList<>();
         List<String>stringList = ReadAndWrite.readFile(PATH_FILE);
         for (int i = 0; i < stringList.size(); i++) {
-            String[]arrList = stringList.get(0).split(",");
+            String[]arrList = stringList.get(i).split(",");
             Employee employee = new Employee(arrList[0],arrList[1],arrList[2],arrList[3],arrList[4],arrList[5],
                     arrList[6],arrList[7],arrList[8],arrList[9] );
             employees.add(employee);

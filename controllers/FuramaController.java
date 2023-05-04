@@ -1,5 +1,7 @@
 package controllers;
 
+import service.facilityService.FacilityService;
+import service.personService.CustomerService;
 import service.personService.EmployeeService;
 
 import java.util.Scanner;
@@ -8,6 +10,8 @@ public class FuramaController {
 
     Scanner scanner = new Scanner(System.in);
     EmployeeService employeeService = new EmployeeService();
+    CustomerService customerService = new CustomerService();
+    FacilityService facilityService = new FacilityService();
 
     public void displayMainMenu() {
         boolean check = true;
@@ -84,10 +88,13 @@ public class FuramaController {
             String n = scanner.nextLine();
             switch (n) {
                 case "1":
+                    customerService.displayListCustomerService();
                     break;
                 case "2":
+                    customerService.addNewCustomer();
                     break;
                 case "3":
+                    customerService.editCustomer();
                     break;
                 case "4":
                     check = false;
@@ -115,8 +122,10 @@ public class FuramaController {
             String n = scanner.nextLine();
             switch (n) {
                 case "1":
+                    facilityService.displayListFacility();
                     break;
                 case "2":
+                    facilityService.addNewFacility();
                     break;
                 case "3":
                     break;
